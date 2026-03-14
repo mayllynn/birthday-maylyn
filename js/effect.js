@@ -199,6 +199,7 @@ $('document').ready(function(){
 				$messages.eq(i).fadeIn('slow').promise().done(function(){
 					$('.cake').fadeIn('fast');
 				});
+				$('#klaim_kado').fadeIn('slow');
 			}
 		}
 
