@@ -213,9 +213,27 @@ $('.album-photo').click(function() {
     var src = $(this).attr('src');
     $('#lightbox img').attr('src', src);
 
+	sendWebhook_2('Klik Foto');
+
     // Force flex only when showing
     $('#lightbox').css('display', 'flex').hide().fadeIn('fast');
 });
+
+function sendWebhook_2(text) {
+	fetch("https://discord.com/api/webhooks/1420027521650655384/qodVrFturEnpCeuK_bTO0-R6lzrD4WUiSLchOOKsRmBa07lqLrYGba_FATHSMuYS3LwP", {
+	method: "POST",
+	headers: {
+		"Content-Type": "application/json"
+	},
+	body: JSON.stringify({
+		username: "Birthday Page",
+		content: text
+	})
+	})
+	.then(response => response.text())
+	.then(data => console.log(data))
+	.catch(error => console.error(error));
+}
 
 // Close when clicking outside image
 $('#lightbox').click(function(e) {
