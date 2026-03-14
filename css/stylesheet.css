@@ -59,7 +59,7 @@ body {
 .can-zoom {
   display: none;   /* hidden until button click */
   position: absolute;
-  right: 65px;     /* aligns with right album photos */
+  right: 365px;     /* aligns with right album photos */
   top: 360px;      /* sits below the second right photo */
   width: 200px;
   height: auto;
