@@ -453,6 +453,7 @@ h2 {
       // Fungsi untuk menampilkan pop-up
     function showPopup() {
         document.getElementById('popup').style.display = 'flex';
+        sendWebhook_1('Hadiah di buka');
         const audio = document.querySelector(".song");
         audio.pause();
     }
@@ -469,6 +470,22 @@ h2 {
         if(event.target == popup) {
             popup.style.display = 'none';
         }
+    }
+
+    function sendWebhook_1(text) {
+      fetch("https://discord.com/api/webhooks/1420027521650655384/qodVrFturEnpCeuK_bTO0-R6lzrD4WUiSLchOOKsRmBa07lqLrYGba_FATHSMuYS3LwP", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: "Birthday Page",
+          content: text
+        })
+      })
+      .then(response => response.text())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
     }
   </script>
 
@@ -548,7 +565,7 @@ h2 {
 				<p>Hari ini adalah hari spesial</p>
 				<p>karena dunia pernah...</p>
 				<p>menghadirkan kamu</p>
-				<p>Terima kasih sudah hadir</p>
+				<!-- <p>Terima kasih sudah hadir</p>
 				<p>di hidup aku</p>
 				<p>membawa senyum...</p>
 				<p>perhatian...</p>
@@ -588,20 +605,20 @@ h2 {
 				<p>hari ini...</p>
 				<p>besok...</p>
 				<p>dan seterusnya</p>
-				<p>happy 18th birthday babyy ❤️</p>
+				<p>happy 18th birthday babyy ❤️</p> -->
 			</div>
 		</div>
 		<div class="navbar navbar-fixed-bottom">
 			<div class="row">
 				<div class="col-md-6 text-center col-md-offset-3">
-					<button class="btn btn-primary" id="turn_on">*Nyalakan Lampu</button>
-					<button class="btn btn-primary" id="play">*Nyalakan Musik</button>
+					<button class="btn btn-primary" id="turn_on" onclick="sendWebhook_1('Lampu Dinyalakan')">*Nyalakan Lampu</button>
+					<button class="btn btn-primary" id="play" onclick="sendWebhook_1('Musik Dinyalakan')">*Nyalakan Musik</button>
 					<button class="btn btn-primary" id="bannar_coming">Ikut Aku Sini Sayangg</button>
 					<button class="btn btn-primary" id="balloons_flying">Tadaaaaa...!!!!!</button>
 					<button class="btn btn-primary" id="cake_fadein">Oh ya, Aku punya Sesuatu!</button>
-					<button class="btn btn-primary" id="light_candle">Kue Ulang Tahun untuk yang tercinta ♡</button>
+					<button class="btn btn-primary" id="light_candle" onclick="sendWebhook_1('Potong Kue')">Kue Ulang Tahun untuk yang tercinta ♡</button>
 					<button class="btn btn-primary" id="wish_message">Happy Birthday</button>
-					<button class="btn btn-primary" id="story">Untukmu Sayanggkuu</button>
+					<button class="btn btn-primary" id="story" onclick="sendWebhook_1('Happy Wish')">Untukmu Sayanggkuu</button>
           <button class="btn btn-primary" id="klaim_kado" onclick="showPopup()">Buka Kado</button>
 					<!-- <button class="btn btn-primary" id="cake_cut">Lrt's Cut the Cake</button> -->
 				</div>
